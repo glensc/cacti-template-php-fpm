@@ -20,10 +20,12 @@ if (($host eq '') || ($port eq '')) {
   print "Usage: check_php-cgi.pl -H host -p port [-s <test script>] [-t <timeout seconds>]\n";
   exit(-1);
 }
-      
+ 
 # run check
 
-	my $ua = LWP::UserAgent->new(timeout => 5);
+	my $ua = LWP::UserAgent->new;
+
+	$ua->timeout($timeout);
 
 	my $response = $ua->request(HTTP::Request->new('GET','http://'.$host.':'.$port.$script));
 	my @content = split (/\n/, $response->content);

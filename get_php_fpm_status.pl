@@ -26,6 +26,7 @@ if (($host eq '') || ($port eq '')) {
 	my $ua = LWP::UserAgent->new;
 
 	$ua->timeout($timeout);
+	$ua->default_header('Host' => $host);
 
 	my $response = $ua->request(HTTP::Request->new('GET','http://'.$host.':'.$port.$script));
 	my @content = split (/\n/, $response->content);

@@ -1,11 +1,6 @@
 #!/usr/bin/perl
 use Getopt::Long;
-
-if (! eval "require LWP::UserAgent;")
-{
-	$ret = "LWP::UserAgent not found";
-}
-
+use LWP::UserAgent;
 
 my $host = '';         # server host
 my $port = 80;       # tcp port

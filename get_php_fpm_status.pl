@@ -1,4 +1,6 @@
 #!/usr/bin/perl
+use strict;
+use warnings;
 use Getopt::Long;
 use LWP::UserAgent;
 
@@ -23,6 +25,9 @@ $ua->timeout($timeout);
 $ua->default_header('Host' => $host);
 
 my $response = $ua->request(HTTP::Request->new('GET','http://'.$host.':'.$port.$script));
+unless ($response->is_success) {
+	die $response->message;
+}
 
 # parse response
 my %data;

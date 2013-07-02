@@ -1,4 +1,22 @@
 #!/usr/bin/perl
+# get_php_fpm_status.pl
+# cacti script to collect stats for PHP-FPM server
+# URL: https://github.com/glensc/cacti-template-php-fpm
+#
+# Copyright (c) 2013 Elan Ruusamäe <glen@delfi.ee>
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License version 2 as
+# published by the Free Software Foundation.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 use strict;
 use warnings;
 use Getopt::Long;

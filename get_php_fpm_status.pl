@@ -42,9 +42,10 @@ my $ua = LWP::UserAgent->new;
 $ua->timeout($timeout);
 $ua->default_header('Host' => $host);
 
-my $response = $ua->request(HTTP::Request->new('GET','http://'.$host.':'.$port.$script));
+my $url = 'http://'.$host.':'.$port.$script;
+my $response = $ua->request(HTTP::Request->new('GET', $url));
 unless ($response->is_success) {
-	die $response->message;
+	die "GET $url: ". $response->message;
 }
 
 # parse response

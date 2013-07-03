@@ -20,23 +20,29 @@
 use strict;
 use warnings;
 use Getopt::Long;
+use constant { MODE_FCGI => 1, MODE_HTTP => 2 };
 
 # command line parameters with some defaults
 my $host = '';         # server host
 my $port = 80;       # tcp port
 my $script = '/fpm-status';       # script (absolute path starting at / - root directory -)
+my $query_string = ''; # query string
 my $timeout = 3;       # timeout in seconds
+my $mode = MODE_HTTP;
 
 # check command line options
 GetOptions(
 	'H=s' => \$host,
 	'p=i' => \$port,
 	's=s' => \$script,
+	'q=s' => \$query_string,
+	'http' => sub { $mode = MODE_HTTP },
+	'fcgi' => sub { $mode = MODE_FCGI },
 	't=i' => \$timeout,
 );
 
 if (!$host || !$port) {
-	print "Usage: check_php-cgi.pl -H host -p port [-s <script path>] [-t <timeout seconds>]\n";
+	print "Usage: check_php-cgi.pl -H host -p port [-s <script path>] [-q <query string>] [-t <timeout seconds>]\n";
 	exit(-1);
 }
 
@@ -56,7 +62,41 @@ sub get_data_http {
 	return $response->content;
 }
 
-my $content = get_data_http();
+sub get_data_fcgi {
+	use IO::Socket::INET;
+	use FCGI::Client;
+
+	my $sock = IO::Socket::INET->new(
+		PeerAddr => $host,
+		PeerPort => $port,
+		Timeout  => $timeout,
+		Proto    => 'tcp',
+	) or die;
+
+	my $client = FCGI::Client::Connection->new(sock => $sock) or die;
+	my ($stdout, $stderr) = $client->request(
+		+{
+			REQUEST_METHOD  => 'GET',
+			PHP_SELF        => $script,
+			SCRIPT_FILENAME => $script,
+			SCRIPT_NAME 	=> $script,
+			QUERY_STRING    => $query_string,
+		},
+		''
+	) or die;
+
+	my ($headers, $body) = split("\r\n\r\n",$stdout);
+	return $body;
+}
+
+my $content;
+if ($mode == MODE_HTTP) {
+	$content = get_data_http();
+} elsif ($mode == MODE_FCGI) {
+	$content = get_data_fcgi();
+} else {
+	die "Unknown mode";
+}
 
 # parse response
 my %data;

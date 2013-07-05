@@ -23,12 +23,20 @@ use Getopt::Long;
 use constant { MODE_FCGI => 1, MODE_HTTP => 2 };
 
 # command line parameters with some defaults
-my $host = '';         # server host
-my $port = 80;       # tcp port
-my $script = '/fpm-status';       # script (absolute path starting at / - root directory -)
-my $query_string = ''; # query string
-my $timeout = 3;       # timeout in seconds
-my $mode = MODE_HTTP;
+# server host
+my $host = '';
+# tcp port
+my $port = 80;
+# script (absolute path starting at / - root directory -)
+my $script = '/fpm-status';
+# query string
+my $query_string = '';
+# timeout in seconds
+my $timeout = 3;
+# connection mode: FCGI or HTTP
+# FCGI talks directly to PHP-FPM port
+# HTTP talks to PHP-FPM status url mapped by webserver
+my $mode = MODE_FCGI;
 
 # check command line options
 GetOptions(

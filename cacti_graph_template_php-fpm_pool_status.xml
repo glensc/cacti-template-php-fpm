@@ -48,7 +48,7 @@
 				<consolidation_function_id>1</consolidation_function_id>
 				<cdef_id>0</cdef_id>
 				<value></value>
-				<gprint_id>hash_060024e9c43831e54eca8069317a2ce8c6f752</gprint_id>
+				<gprint_id>hash_060024e9c43831e54eca8069317a2ce8c6f751</gprint_id>
 				<text_format>Active Processes</text_format>
 				<hard_return></hard_return>
 				<sequence>1</sequence>
@@ -256,7 +256,7 @@
 				<consolidation_function_id>4</consolidation_function_id>
 				<cdef_id>0</cdef_id>
 				<value></value>
-				<gprint_id>hash_060024e9c43831e54eca8069317a2ce8c6f752</gprint_id>
+				<gprint_id>hash_060024e9c43831e54eca8069317a2ce8c6f751</gprint_id>
 				<text_format>Cur:</text_format>
 				<hard_return></hard_return>
 				<sequence>18</sequence>
@@ -269,7 +269,7 @@
 				<consolidation_function_id>1</consolidation_function_id>
 				<cdef_id>0</cdef_id>
 				<value></value>
-				<gprint_id>hash_060024e9c43831e54eca8069317a2ce8c6f752</gprint_id>
+				<gprint_id>hash_060024e9c43831e54eca8069317a2ce8c6f751</gprint_id>
 				<text_format>Avg:</text_format>
 				<hard_return></hard_return>
 				<sequence>19</sequence>
@@ -282,7 +282,7 @@
 				<consolidation_function_id>2</consolidation_function_id>
 				<cdef_id>0</cdef_id>
 				<value></value>
-				<gprint_id>hash_060024e9c43831e54eca8069317a2ce8c6f752</gprint_id>
+				<gprint_id>hash_060024e9c43831e54eca8069317a2ce8c6f751</gprint_id>
 				<text_format>Min:</text_format>
 				<hard_return></hard_return>
 				<sequence>20</sequence>
@@ -295,7 +295,7 @@
 				<consolidation_function_id>3</consolidation_function_id>
 				<cdef_id>0</cdef_id>
 				<value></value>
-				<gprint_id>hash_060024e9c43831e54eca8069317a2ce8c6f752</gprint_id>
+				<gprint_id>hash_060024e9c43831e54eca8069317a2ce8c6f751</gprint_id>
 				<text_format>Max:</text_format>
 				<hard_return>on</hard_return>
 				<sequence>21</sequence>
@@ -576,8 +576,4 @@
 		<name>Exact Numbers</name>
 		<gprint_text>%8.0lf</gprint_text>
 	</hash_06002419414480d6897c8731c7dc6c5310653e>
-	<hash_060024e9c43831e54eca8069317a2ce8c6f752>
-		<name>X Normal</name>
-		<gprint_text>%6.1lf%s</gprint_text>
-	</hash_060024e9c43831e54eca8069317a2ce8c6f752>
 </cacti>

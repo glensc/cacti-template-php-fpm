@@ -5,14 +5,13 @@ Cacti PHP-FPM template
 
 Requires PHP 5.3.8+ for older versions you may need to [tweak](http://forums.cacti.net/viewtopic.php?p=216341#p216341) field names.
 
-The status is retrieved from PHP-FPM via HTTP (not FCGI) protocol.
+The status can be retrieved from PHP-FPM via HTTP or FCGI protocol.
 
 Draws graphs for 4 items and total request count:
 - Active - active processes count
 - Idle - current idle processes count
 - Total - current total process count
 - Requests/sec - average
-- Total requests - accepted connections since PHP-FPM start
-
+- Total requests - accepted connections
 
 Originally imported from cacti forum posts: http://forums.cacti.net/viewtopic.php?f=12&t=41580

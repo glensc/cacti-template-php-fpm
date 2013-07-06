@@ -47,7 +47,7 @@ GetOptions(
 	'http' => sub { $mode = MODE_HTTP },
 	'fcgi' => sub { $mode = MODE_FCGI },
 	't=i' => \$timeout,
-);
+) or die "ERROR: parsing commandline options!\n";
 
 if (!$host || !$port) {
 	print "Usage: check_php-cgi.pl -H host -p port [-s <script path>] [-q <query string>] [-t <timeout seconds>]\n";

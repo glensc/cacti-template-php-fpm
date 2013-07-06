@@ -443,7 +443,7 @@
 	<hash_030024b7014e8e8bc4c8502a7ea5b090cfe62d>
 		<name>PHP-FPM Pool Status</name>
 		<type_id>1</type_id>
-		<input_string>/usr/bin/perl &lt;path_cacti&gt;/scripts/get_php_fpm_status.pl -H &lt;hostname&gt; -p &lt;port&gt; -s &lt;script&gt; -q &lt;querystring&gt; --&lt;mode&gt;</input_string>
+		<input_string>/usr/bin/perl &lt;path_cacti&gt;/scripts/get_php_fpm_status.pl -H &lt;hostname&gt; -p &lt;port&gt; -s &lt;script&gt; --&lt;mode&gt; -q &lt;querystring&gt;</input_string>
 		<fields>
 			<hash_070024d2f66540ff131fd5e21ff2996262db41>
 				<name>query string</name>

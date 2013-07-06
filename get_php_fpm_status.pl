@@ -63,6 +63,9 @@ sub get_data_http {
 	$ua->default_header('Host' => $host);
 
 	my $url = 'http://'.$host.':'.$port.$script;
+	if ($query_string) {
+		$url .= '?' . $query_string;
+	}
 	my $response = $ua->request(HTTP::Request->new('GET', $url));
 	unless ($response->is_success) {
 		die "GET $url: ". $response->message;

@@ -56,7 +56,7 @@ if (!$host || !$port) {
 
 # retrieve PHP-FPM status over HTTP protocol
 sub get_data_http {
-	use LWP::UserAgent;
+	require LWP::UserAgent;
 	my $ua = LWP::UserAgent->new;
 
 	$ua->timeout($timeout);
@@ -74,8 +74,8 @@ sub get_data_http {
 }
 
 sub get_data_fcgi {
-	use IO::Socket::INET;
-	use FCGI::Client;
+	require IO::Socket::INET;
+	require FCGI::Client;
 
 	my $sock = IO::Socket::INET->new(
 		PeerAddr => $host,

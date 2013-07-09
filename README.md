@@ -14,4 +14,6 @@ Draws graphs for 4 items and total request count:
 - Requests/sec - average
 - Total requests - accepted connections
 
+![Sample Graph](php-fpm.png)
+
 Originally imported from cacti forum posts: http://forums.cacti.net/viewtopic.php?f=12&t=41580

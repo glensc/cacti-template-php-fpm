@@ -64,7 +64,6 @@ sub get_data_http {
 
 	$ua->timeout($timeout);
 	$ua->default_header('Host' => $host);
-	$ua->ssl_opts({ verify_hostname => 0 });
 
 	my $url = sprintf('%s://%s:%s%s', $proto, $host, $port, $script);
 	if ($query_string) {

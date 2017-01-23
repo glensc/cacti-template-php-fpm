@@ -17,7 +17,3 @@ Draws graphs for 4 items and total request count:
 ![Sample Graph](php-fpm.png)
 
 Originally imported from cacti forum posts: http://forums.cacti.net/viewtopic.php?f=12&t=41580
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/glensc/cacti-template-php-fpm/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-

@@ -436,14 +436,14 @@
 			<item_004>
 				<data_input_field_id>hash_070024d2f66540ff131fd5e21ff2996262db41</data_input_field_id>
 				<t_value>on</t_value>
-				<value></value>
+				<value>?json</value>
 			</item_004>
 		</data>
 	</hash_0100243aae66834ce2f98f72c9fb9d33f89424>
 	<hash_030024b7014e8e8bc4c8502a7ea5b090cfe62d>
 		<name>PHP-FPM Pool Status</name>
 		<type_id>1</type_id>
-		<input_string>/usr/bin/perl &lt;path_cacti&gt;/scripts/get_php_fpm_status.pl -H &lt;hostname&gt; -p &lt;port&gt; -s &lt;script&gt; -q &lt;querystring&gt; --&lt;mode&gt;</input_string>
+		<input_string>/usr/bin/perl &lt;path_cacti&gt;/scripts/get_php_fpm_status.pl -H &lt;hostname&gt; -p &lt;port&gt; -s &lt;script&gt; -q '&lt;querystring&gt;' --&lt;mode&gt;</input_string>
 		<fields>
 			<hash_070024d2f66540ff131fd5e21ff2996262db41>
 				<name>query string</name>
@@ -455,9 +455,9 @@
 				<data_name>querystring</data_name>
 			</hash_070024d2f66540ff131fd5e21ff2996262db41>
 			<hash_070024238145898fdb7e272e1ec6d1348ff600>
-				<name>fetch mode: fcgi or http</name>
+				<name>fetch mode: fcgi, http or https</name>
 				<update_rra></update_rra>
-				<regexp_match>^(http|fcgi)$</regexp_match>
+				<regexp_match>^(http|https|fcgi)$</regexp_match>
 				<allow_nulls>on</allow_nulls>
 				<type_code></type_code>
 				<input_output>in</input_output>

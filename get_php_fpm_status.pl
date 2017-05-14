@@ -20,7 +20,8 @@
 use strict;
 use warnings;
 use Getopt::Long;
-use constant { MODE_FCGI => 1, MODE_HTTP => 2 };
+use FindBin qw/$Script/;
+use constant { MODE_FCGI => 1, MODE_HTTP => 2, MODE_HTTPS => 3 };
 
 # command line parameters with some defaults
 # server host
@@ -45,24 +46,26 @@ GetOptions(
 	's=s' => \$script,
 	'q=s' => \$query_string,
 	'http' => sub { $mode = MODE_HTTP },
+        'https' => sub { $mode = MODE_HTTPS },
 	'fcgi' => sub { $mode = MODE_FCGI },
 	't=i' => \$timeout,
 ) or die "ERROR: parsing commandline options!\n";
 
 if (!$host || !$port) {
-	print "Usage: check_php-cgi.pl -H host -p port [-s <script path>] [-q <query string>] [-t <timeout seconds>]\n";
+	print "Usage: $Script -H host -p port [-s <script path>] [-q <query string>] [-t <timeout seconds>]\n";
 	exit(-1);
 }
 
 # retrieve PHP-FPM status over HTTP protocol
 sub get_data_http {
 	require LWP::UserAgent;
+	my $proto = shift || 'http';
 	my $ua = LWP::UserAgent->new;
 
 	$ua->timeout($timeout);
 	$ua->default_header('Host' => $host);
 
-	my $url = 'http://'.$host.':'.$port.$script;
+	my $url = sprintf('%s://%s:%s%s', $proto, $host, $port, $script);
 	if ($query_string) {
 		$url .= '?' . $query_string;
 	}
@@ -71,6 +74,10 @@ sub get_data_http {
 		die "GET $url: ". $response->message;
 	}
 	return $response->content;
+}
+
+sub get_data_https {
+	get_data_http('https');
 }
 
 sub get_data_fcgi {
@@ -103,6 +110,8 @@ sub get_data_fcgi {
 my $content;
 if ($mode == MODE_HTTP) {
 	$content = get_data_http();
+} elsif ($mode == MODE_HTTPS) {
+	$content = get_data_https();
 } elsif ($mode == MODE_FCGI) {
 	$content = get_data_fcgi();
 } else {

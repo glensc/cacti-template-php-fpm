@@ -4,11 +4,18 @@ When writing entries, refer to [Keep a CHANGELOG](http://keepachangelog.com/) fo
 
 All notable changes to this project will be documented in this file.
 
+## [0.6.0] - 2017-05-14
+
+- Support for HTTPS and various minor fixes/improvements. [#2]
+
+[0.6.0]: https://github.com/glensc/cacti-template-php-fpm/compare/0.5...0.6.0
+[#2]: https://github.com/glensc/cacti-template-php-fpm/pull/2
+
 ## [0.5] - 2014-02-17
 
 Do not quote Data Input Methods parameters. Cacti does it as well
 
-[0.4]: https://github.com/glensc/cacti-template-php-fpm/compare/0.4...0.5
+[0.5]: https://github.com/glensc/cacti-template-php-fpm/compare/0.4...0.5
 
 ## [0.4] - 2013-07-06 FCGI support
 
